@@ -4,12 +4,11 @@ const inputDays = Number(prompt('Zadejte kolik dní v měsící průměrně prac
 const inputTaxPercentage = Number(prompt('Zadejte procento zdaneni: '));
 
 function salary(wage, hours, days) {
-  const calculatedSalary = wage * hours * days;
-  return calculatedSalary;
+    return (wage * hours * days);
 }
 
-function taxed(taxedPercentage) {
-  return salary(inputWage,inputHours,inputDays)*((100 - taxedPercentage)/100)
+function taxed(countedSalary, taxedPercentage) {
+  return (countedSalary *((100 - taxedPercentage)/100))
 }
 
-document.body.innerHTML += `Vase hruba mzda je : ${taxed(inputTaxPercentage)} pri ${inputTaxPercentage}% danich`;
+document.body.innerHTML += `Vase hruba mzda je : ${taxed(salary(inputWage, inputHours, inputDays), inputTaxPercentage)} pri ${inputTaxPercentage}% danich`;
